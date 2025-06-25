@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'NanumBarunGothic';
+  src: url('../assets/fonts/NanumBarunGothic/NanumBarunGothic.ttf') format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'NanumBarunGothic';
+  src: url('../assets/fonts/NanumBarunGothic/NanumBarunGothicBold.ttf') format('truetype');
+  font-weight: 1000;
+}
+
+body {
+  font-family: 'NanumBarunGothic', sans-serif;
+}
