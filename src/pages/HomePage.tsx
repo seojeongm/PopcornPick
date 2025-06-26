@@ -22,10 +22,30 @@ const HomePage = () => {
         🎲 영화 생성하기
       </button>
 
-      {loading && <p className="mt-12 text-[#7A7572] text-lg">로딩 중...</p>}
-      {error && <p className="mt-12 text-red-500 text-lg">에러 발생: {error}</p>}
+      {loading && (
+        <div className="w-full max-w-2xl mt-12 bg-[#F3EFDC] rounded-2xl shadow-xl p-8 space-y-6 animate-fade-in">
+          <div className="flex items-center gap-2 text-3xl font-bold">
+            <span className="bg-[#DDD6C1] w-8 h-8 rounded-full animate-pulse"></span>
+            <span className="bg-[#DDD6C1] h-8 w-48 rounded animate-pulse"></span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="bg-[#DDD6C1] w-16 h-6 rounded-full animate-pulse"></span>
+            <span className="bg-[#DDD6C1] w-20 h-6 rounded animate-pulse"></span>
+          </div>
+          <div className="flex flex-col md:flex-row gap-6 items-start">
+            <div className="w-full md:w-[230px] h-[350px] bg-[#DDD6C1] rounded-2xl animate-pulse"></div>
+            <div className="flex-1 space-y-2">
+              <div className="bg-[#DDD6C1] h-6 w-3/4 rounded-lg animate-pulse"></div>
+              <div className="bg-[#DDD6C1] h-6 w-2/3 rounded-lg animate-pulse"></div>
+              <div className="bg-[#DDD6C1] h-6 w-1/2 rounded-lg animate-pulse"></div>
+            </div>
+          </div>
+        </div>
+      )}
 
-      {movie && (
+      {!loading && error && <p className="mt-12 text-red-500 text-lg">에러 발생: {error}</p>}
+
+      {!loading && movie && (
         <div className="w-full max-w-2xl mt-12 bg-[#F3EFDC] rounded-2xl shadow-xl p-8 space-y-6 animate-fade-in">
           <div className="flex items-center gap-2 text-3xl font-bold">
             <span>🎬</span>
@@ -45,16 +65,16 @@ const HomePage = () => {
                 <img
                   src={`${IMAGE_BASE_URL}${movie.poster_path}`}
                   alt={movie.title}
-                  className="object-contain rounded-xl border border-[#CFC8B0] shadow"
+                  className="object-contain rounded-2xl"
                 />
               ) : (
-                <div className="w-full h-[350px] bg-[#DDD6C1] flex items-center justify-center text-[#7A7572] text-sm rounded-xl border border-[#CFC8B0]">
+                <div className="w-full h-[350px] bg-[#DDD6C1] flex items-center justify-center text-[#7A7572] text-sm rounded-2xl">
                   포스터 없음
                 </div>
               )}
             </div>
 
-            <p className="text-base md:text-lg leading-relaxed flex-1 text-[#3E3A36]">
+            <p className="text-lg leading-relaxed flex-1 text-[#3E3A36]">
               {movie.overview}
             </p>
           </div>
